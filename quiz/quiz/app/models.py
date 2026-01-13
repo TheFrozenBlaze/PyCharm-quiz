@@ -7,7 +7,7 @@ class Question(models.Model):
     option_b = models.CharField('Option B', max_length=150)
     option_c = models.CharField('Option C', max_length=150)
     option_d = models.CharField('Option D', max_length=150)
-    answer = models.CharField('Correct answer', choices=('A', 'B', 'C', 'D'), max_length=1)
+    answer = models.CharField('Correct answer', choices=(('A', 'A'), ('B', 'B'), ('C', 'C'), ('D', 'D')), max_length=1)
 
     def __str__(self):
         return self.text
