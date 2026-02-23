@@ -9,5 +9,29 @@
 </head>
 <body>
 <h1>{{ question.text }}</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <label for="answer_a">{{ question.option_a }}</label>
+    <input type="radio" name="Answer" value="A" id="answer_a" {% if selected == "A" %} checked {% endif %}>
+    <label for="answer_b">{{ question.option_b }}</label>
+    <input type="radio" name="Answer" value="B" id="answer_b" {% if selected == "B" %} checked {% endif %}>
+    <label for="answer_c">{{ question.option_c }}</label>
+    <input type="radio" name="Answer" value="C" id="answer_c" {% if selected == "C" %} checked {% endif %}>
+    <label for="answer_d">{{ question.option_d }}</label>
+    <input type="radio" name="Answer" value="D" id="answer_d" {% if selected == "D" %} checked {% endif %}>
+    <button type="submit">Küldés</button>
+</form>
+{% if feedback %}
+{% if feedback == "Helyes válasz" %}
+<div style="background-color: magenta; color: white">
+    <h1>Helyes válasz</h1>
+</div>
+{% else %}
+<div style="background-color: magenta; color: white">
+    <h1>Helytelen válasz</h1>
+</div>
+{% endif %}
+{% endif %}
 </body>
 </html>
