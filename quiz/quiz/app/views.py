@@ -28,3 +28,14 @@ def view_question(request, question_id):
     }
 
     return render(request, 'app/hello.html', context)
+
+
+def list_questions(request):
+    questions = Question.objects.all().order_by('text')
+
+    context = {
+        'questions': questions
+    }
+
+    return render(request, 'app/list.html', context)
+

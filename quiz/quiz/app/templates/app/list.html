@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Questions</title>
+</head>
+<body>
+<h1>Question list</h1>
+<form>
+    <ul>
+        {% for question in questions %}
+            <li>
+                <a href={% url 'hello' question_id=question.id %}>
+                {{ question.text }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</form>
+</body>
+</html>
